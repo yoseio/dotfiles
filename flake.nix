@@ -8,6 +8,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -56,9 +61,11 @@
       cellBlocks = with std.blockTypes;
       with hive.blockTypes; [
         (functions "nixosProfiles")
+        (functions "darwinProfiles")
         (functions "homeProfiles")
 
         nixosConfigurations
+        darwinConfigurations
         # homeConfigurations
 
         (devshells "shells")
@@ -66,6 +73,7 @@
     }
     {
       nixosConfigurations = hive.collect self "nixosConfigurations";
+      darwinConfigurations = hive.collect self "darwinConfigurations";
       # homeConfigurations = hive.collect self "homeConfigurations";
     }
     {
