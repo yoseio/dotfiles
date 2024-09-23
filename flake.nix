@@ -30,7 +30,7 @@
     };
 
     hive = {
-      url = "github:divnix/hive";
+      url = "github:yoseio/hive/yoseio";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

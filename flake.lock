@@ -256,15 +256,16 @@
         "std": "std"
       },
       "locked": {
-        "lastModified": 1711370182,
-        "narHash": "sha256-a8UK0PRMZWTN6Hu8f/ddwdtUyZsq8u/DYmySZUmpDfA=",
-        "owner": "divnix",
+        "lastModified": 1727072111,
+        "narHash": "sha256-NQeD/rxl3SseLTk+K2935wgT/4FzWKbUnmxTri0CHvQ=",
+        "owner": "yoseio",
         "repo": "hive",
-        "rev": "658417a0461bbef57ef109eec28b029c212de2a9",
+        "rev": "351cf7887d5f7495e1cf627444015e69a3add9fc",
         "type": "github"
       },
       "original": {
-        "owner": "divnix",
+        "owner": "yoseio",
+        "ref": "yoseio",
         "repo": "hive",
         "type": "github"
       }
