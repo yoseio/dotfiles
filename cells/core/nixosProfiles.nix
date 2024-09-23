@@ -27,4 +27,14 @@
       options = "--delete-older-than 30d";
     };
   };
+
+  _1password = {
+    # https://wiki.nixos.org/wiki/1Password
+    programs._1password.enable = true;
+    programs._1password-gui.enable = true;
+    programs.ssh.extraConfig = ''
+      Host *
+        IdentityAgent ~/.1password/agent.sock
+    '';
+  };
 }
