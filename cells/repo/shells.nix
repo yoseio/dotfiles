@@ -2,18 +2,19 @@
   inputs,
   cell,
 }: let
-  inherit (inputs) nixpkgs std;
   l = nixpkgs.lib // builtins;
+  inherit (inputs) nixpkgs;
+  inherit (inputs.std) std lib;
 in
-  l.mapAttrs (_: std.lib.dev.mkShell) {
-    default = {...}: {
+  l.mapAttrs (_: lib.dev.mkShell) {
+    default = {
       name = "yoseio/dotfiles";
-      imports = [std.std.devshellProfiles.default];
-      commands = [
-        {
-          package = nixpkgs.alejandra;
-          # category = "dev";
-        }
+      imports = [ std.devshellProfiles.default ];
+      commands = with nixpkgs; [
+        { package = alejandra; }
+        { category = "sops"; package = age; }
+        { category = "sops"; package = sops; }
+        { category = "sops"; package = ssh-to-age; }
       ];
     };
   }

@@ -1,0 +1,9 @@
+keys:
+  - &admin_yoseio age1mf535dx46jy7pt3xvyzqgl2g4r370rls7unghzds6qsau9wq8qvsnffepl
+  - &server_sakura age1sqre9wzt6anfg6n3fxqk2649c8zuwp4wcqjy066ksrywxt6l8adsuaaxuc
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *admin_yoseio
+      - *server_sakura

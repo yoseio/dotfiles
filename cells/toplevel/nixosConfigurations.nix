@@ -26,6 +26,8 @@
       inputs.cells.locale.nixosProfiles.ja-jp-core
       inputs.cells.locale.nixosProfiles.ja-jp-input
       inputs.cells.locale.nixosProfiles.ja-jp-font
+
+      inputs.cells.secrets.nixosProfiles.sops
     ];
 
     home-manager.users.yoseio = {
