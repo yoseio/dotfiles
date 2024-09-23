@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: {
-  sakura = {
+  sakura = { config, ... }: {
     bee = {
       system = "x86_64-linux";
       pkgs = inputs.nixpkgs;
@@ -54,16 +54,17 @@
       };
     };
 
+    users.mutableUsers = false;
     users.users = {
       root = {
-        hashedPassword = "$y$j9T$fJZubI3HN5OduEbPRvz6k1$BD06AfBoz8nuAMVYqqpbW/ua.zo6Y2g8AkL42tpIlQ4";
+        hashedPasswordFile = config.sops.secrets."users/root".path;
       };
 
       yoseio = {
         isNormalUser = true;
         extraGroups = ["wheel" "docker" "dialout" "audio"];
         shell = inputs.nixpkgs.pkgs.zsh;
-        hashedPassword = "$y$j9T$fJZubI3HN5OduEbPRvz6k1$BD06AfBoz8nuAMVYqqpbW/ua.zo6Y2g8AkL42tpIlQ4";
+        hashedPasswordFile = config.sops.secrets."users/yoseio".path;
       };
     };
 
