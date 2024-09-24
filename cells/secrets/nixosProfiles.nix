@@ -2,7 +2,7 @@
   inputs,
   cell,
 }: {
-  sops = {
+  sops = {config, ...}: {
     imports = [
       inputs.sops-nix.nixosModules.sops
     ];
@@ -13,5 +13,10 @@
 
     sops.secrets."users/root".neededForUsers = true;
     sops.secrets."users/yoseio".neededForUsers = true;
+    sops.secrets."cloudflared" = {
+      mode = "440";
+      owner = "cloudflared";
+      group = "cloudflared";
+    };
   };
 }

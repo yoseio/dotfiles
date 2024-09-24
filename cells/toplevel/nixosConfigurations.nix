@@ -15,6 +15,7 @@
       inputs.cells.core.nixosProfiles.default
       inputs.cells.core.nixosProfiles.optimise
       inputs.cells.core.nixosProfiles._1password
+      inputs.cells.core.nixosProfiles.cloudflared
 
       inputs.cells.desktop.nixosProfiles.gnome
 

@@ -37,4 +37,19 @@
         IdentityAgent ~/.1password/agent.sock
     '';
   };
+
+  cloudflared = {pkgs, config, ...}: {
+    services.cloudflared = {
+      enable = true;
+      tunnels = {
+        "a5dd42da-b3a9-4dae-813e-824eb976ec4a" = {
+          credentialsFile = "${config.sops.secrets.cloudflared.path}";
+          default = "http_status:404";
+        };
+      };
+    };
+    environment.systemPackages = with pkgs; [
+      cloudflared
+    ];
+  };
 }
