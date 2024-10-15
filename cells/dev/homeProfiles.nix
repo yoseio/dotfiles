@@ -107,9 +107,9 @@
     };
 
     # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.git-credential-oauth.enable
-    programs.git-credential-oauth = {
-      enable = true;
-    };
+    # programs.git-credential-oauth = {
+    #   enable = true;
+    # };
 
     # https://nix-community.github.io/home-manager/options.xhtml#opt-programs.gh.enable
     # https://github.com/nix-community/home-manager/issues/3401
